@@ -1,3 +1,7 @@
+Credits:
+Ania Kubow: https://www.youtube.com/watch?v=Q70IMS-Qnjk
+- Used as tutorial for general structure of code and understanding
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
