@@ -4,7 +4,7 @@
 // Dashboard with search bar and options to select, match, etc and send requests.
 // Collaboration tab including the individuals you are paired and chat
 // Help and support
-import Home from './pages/Home'
+import Landing from './pages/Landing'
 import Dashboard from './pages/Dashboard'
 import Onboarding from './pages/Onboarding'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
@@ -13,7 +13,7 @@ const App = () => {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path={"/"} element={<Home/>}/>
+        <Route path={"/"} element={<Landing/>}/>
         <Route path={"/dashboard"} element={<Dashboard/>}/>
         <Route path={"/onboarding"} element={<Onboarding/>}/>
       </Routes>

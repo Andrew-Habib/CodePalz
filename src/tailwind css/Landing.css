@@ -1,0 +1,19 @@
+body {
+    @apply bg-slate-950;
+    @apply text-white;
+    @apply text-center;
+    @apply text-xl;
+}
+
+.signup-button{
+    @apply bg-gradient-to-r from-blue-900 to-cyan-600;
+    @apply py-2 px-8;
+    @apply rounded-full;
+    @apply transition-colors;
+}
+.signup-button:hover {
+    @apply shadow-lg shadow-blue-800/50;
+    transform: scale(1.05);
+}
+
+/* ----Nav Bar---- */
