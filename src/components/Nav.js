@@ -1,6 +1,6 @@
 import placeholder_logo from '../images/placeholder-logo.png'
 
-const Nav = ({authToken}) => {
+const Nav = () => {
     return (
         <nav>
             <div className="logo-div">

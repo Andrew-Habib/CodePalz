@@ -1,14 +1,28 @@
+import Login from './Login'
+import Signup from './Signup'
+
 const UserForms = () => {
+
+    const authToken = false
+
+    const handle_signup_clicked = () => {
+        console.log("clicked")
+    }
+
     return (
-        <div className="user-forms">
-            <div className="login-div">
-                <h1 className="login-title">Login</h1>
+        <div>
+            <div className="user-login-signup">
+                <div className="login-div">
+                    <Login />
+                </div>
+                <div className="signup-div">
+                    <Signup />
+                </div>
             </div>
-            <div className="signup-div">
-                <h1 className="signup-title">Signup</h1>
-            </div>
+            <p className="terms-msg">By clicking Log In or Sign Up, you agree to our terms and conditions.</p>
         </div>
     )
+    
 }
 
-export default UserForms;
+export default UserForms

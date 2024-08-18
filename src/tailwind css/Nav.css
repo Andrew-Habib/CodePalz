@@ -1,5 +1,5 @@
 nav {
-    @apply bg-gradient-to-r from-violet-800 to-pink-700;
+    @apply bg-gradient-to-r from-purple-800 to-pink-700;
     @apply w-full flex fixed top-0 left-0;
 }
 
