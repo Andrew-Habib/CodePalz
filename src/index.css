@@ -3,10 +3,14 @@
 @tailwind utilities;
 
 @import url('./tailwind\ css/Landing.css');
+@import url('./tailwind\ css/Nav.css');
+@import url('./tailwind\ css/UserForms.css');
 
-html {
-  margin: 0;
-  padding: 0;
+html, body {
+  @apply m-0 p-0;
+  @apply bg-gradient-to-b from-slate-950 to-slate-900;
+  @apply w-full h-full;
+  @apply text-white text-base;
 }
 
 * {

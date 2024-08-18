@@ -1,4 +1,5 @@
 import Nav from '../components/Nav'
+import UserForms from '../components/UserForms'
 
 const Landing = () => {
 
@@ -9,13 +10,14 @@ const Landing = () => {
     }
 
     return (
-        <div>
-            <Nav />
+        <div className="overlay">
+            <Nav authToken={authToken}/>
             <div className="home">
-                <h1>Find a Code Pal Now</h1>
-                <button className="signup-button" onClick={handle_signup_clicked}>
+                <h1 className="landing-ad-msg">Find a Code Pal Now</h1>
+                {/* <button className="signup-button" onClick={handle_signup_clicked}>
                     { authToken ? "SIGN OUT" : "CREATE ACCOUNT"}
-                </button>
+                </button> */}
+                <UserForms />
             </div>
         </div>
     )

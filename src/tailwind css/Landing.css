@@ -1,19 +1,29 @@
-body {
-    @apply bg-slate-950;
-    @apply text-white;
+.landing-ad-msg { 
+    @apply text-4xl font-bold text-center;
+    @apply mt-16 mb-4;
+}
+
+.user-forms {
+    @apply flex justify-center;
     @apply text-center;
-    @apply text-xl;
+}
+
+.login-div, .signup-div {
+    @apply bg-gray-700 rounded-2xl;
+    @apply w-4/12 h-4/6 m-2;
+}
+
+.login-title, .signup-title {
+    @apply text-2xl font-bold m-4;
 }
 
 .signup-button{
-    @apply bg-gradient-to-r from-blue-900 to-cyan-600;
+    @apply bg-gradient-to-b from-blue-900 to-cyan-500;
     @apply py-2 px-8;
     @apply rounded-full;
-    @apply transition-colors;
-}
-.signup-button:hover {
-    @apply shadow-lg shadow-blue-800/50;
-    transform: scale(1.05);
 }
 
-/* ----Nav Bar---- */
+.signup-button:hover {
+    @apply shadow-lg shadow-blue-800/50;
+    @apply scale-105;
+}

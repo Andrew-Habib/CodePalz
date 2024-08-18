@@ -1,0 +1,21 @@
+nav {
+    @apply bg-gradient-to-r from-violet-800 to-pink-700;
+    @apply w-full flex fixed top-0 left-0;
+}
+
+nav .logo-div {
+    @apply w-10 m-2;
+}
+
+nav .logo-div .logo {
+    @apply w-full rounded-xl;
+}
+
+nav .title-nav {
+    @apply text-3xl font-bold;
+    @apply my-auto;
+}
+
+nav .nav-button {
+    @apply py-2 px-8;
+}
