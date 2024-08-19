@@ -6,6 +6,7 @@
 @import url('./tailwind\ css/Nav.css');
 @import url('./tailwind\ css/UserForms.css');
 @import url('./tailwind\ css/Authorize.css');
+@import url('./tailwind\ css/Onboarding.css');
 
 body {
   @apply bg-gradient-to-b from-slate-950 to-slate-900;

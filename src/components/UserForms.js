@@ -2,13 +2,7 @@ import Login from './Login'
 import Signup from './Signup'
 
 const UserForms = () => {
-
-    const authToken = false
-
-    const handle_signup_clicked = () => {
-        console.log("clicked")
-    }
-
+    
     return (
         <div>
             <div className="user-login-signup">
@@ -19,7 +13,7 @@ const UserForms = () => {
                     <Signup />
                 </div>
             </div>
-            <p className="terms-msg">By clicking Log In or Sign Up, you agree to our terms and conditions.</p>
+            <p className="terms-msg">By clicking Log In or Create Account, you agree to our terms and conditions.</p>
         </div>
     )
     

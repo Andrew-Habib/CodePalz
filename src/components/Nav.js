@@ -7,9 +7,8 @@ const Nav = () => {
                 <img className="logo" src={placeholder_logo}></img> 
             </div>
             <h1 className="title-nav">CodePalz</h1>
-            {/* {<button className="nav-button">Log in</button>} */}
         </nav>
     )
 }
-// add source for logo Go back to 35 mins
+
 export default Nav

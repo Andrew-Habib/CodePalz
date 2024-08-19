@@ -1,5 +1,5 @@
 Credits:
-Ania Kubow: https://www.youtube.com/watch?v=Q70IMS-Qnjk
+Ania Kubów: https://www.youtube.com/watch?v=Q70IMS-Qnjk
 - Used as tutorial for general structure of code and understanding
 
 # Getting Started with Create React App

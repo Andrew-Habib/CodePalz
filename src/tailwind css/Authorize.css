@@ -29,3 +29,8 @@
     @apply shadow-lg shadow-pink-500/50;
     @apply scale-105;
 } 
+
+.signup-error {
+    @apply flex justify-center text-center;
+    @apply text-xl m-8;
+}
