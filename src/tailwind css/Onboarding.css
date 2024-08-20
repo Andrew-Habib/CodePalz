@@ -24,8 +24,12 @@
     @apply p-3 my-4 mx-4;
 }
 
+.agreement {
+    @apply w-4 h-4;
+}
+
 .onboarding form input[type="number"] {
-    @apply w-1/6;
+    @apply w-1/4;
 }
 
 .onboarding input[type=submit] {
@@ -36,4 +40,8 @@
 .onboarding input[type=submit]:hover {
     @apply bg-gradient-to-b from-pink-800 to-pink-500;
     @apply shadow-lg shadow-pink-500/50;
+}
+
+.languages-input {
+    @apply w-5/12;
 }

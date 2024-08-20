@@ -96,15 +96,49 @@ const Onboarding = () => {
                             <label htmlFor="woman">Woman</label>
                         </div>
 
-                        <label htmlFor="bio">Bio</label>
+                        <label htmlFor="github">GitHub Profile</label>
                         <input
-                            id="bio"
+                            id="github"
                             type="text"
-                            name="bio"
-                            placeholder="I love coding games in python..."
-                            required={true}
+                            name="github"
+                            placeholder="GitHub URL"
+                            required={false}
                             onChange={handleChange}
                         />
+
+                        <label htmlFor="linkedin">LinkedIn Profile</label>
+                        <input
+                            id="linkedin"
+                            type="text"
+                            name="linkedin"
+                            placeholder="LinkedIn URL"
+                            required={false}
+                            onChange={handleChange}
+                        />
+
+                        <label htmlFor="portfolio">Portfolio Website</label>
+                        <input
+                            id="portfolio"
+                            type="text"
+                            name="portfolio"
+                            placeholder="Portfolio URL"
+                            required={false}
+                            onChange={handleChange}
+                        />
+                        
+                        <label htmlFor="agreement">User Agreement*</label>
+                        <div>
+                            <input className="agreement"
+                                id="agreement"
+                                type="checkbox"
+                                name="agreement"
+                                value="linkedin"
+                                required={true}
+                                onChange={handleChange}
+                            />
+                            <label>By signing up, you agree to our Terms of Service and Privacy Policy.</label>
+                        </div>
+                        
                         <input type="submit"/>
                     </section>
                     <section>
@@ -116,6 +150,54 @@ const Onboarding = () => {
                                 required={true}
                                 onChange={handleChange}
                             />
+                        <label htmlFor="bio">Bio</label>
+                            <input
+                                id="bio"
+                                type="text"
+                                name="bio"
+                                placeholder="I love coding games in python..."
+                                required={true}
+                                onChange={handleChange}
+                            />
+                        <label htmlFor="languages">Languages</label>
+                            <div>
+                                <input className="languages-input"
+                                    id="language-text"
+                                    type="text"
+                                    name="language-text"
+                                    placeholder="Language"
+                                    required={true}
+                                    onChange={handleChange}
+                                />
+                                <input className="languages-input"
+                                    id="language-button"
+                                    type="text"
+                                    name="language-button"
+                                    placeholder="Language"
+                                    required={true}
+                                    onChange={handleChange}
+                                />
+                            </div>
+
+                        <label htmlFor="frameworks">Frameworks</label>
+                            <div>
+                                <input className="languages-input"
+                                    id="bio"
+                                    type="text"
+                                    name="bio"
+                                    placeholder="Language"
+                                    required={true}
+                                    onChange={handleChange}
+                                />
+                                <input className="languages-input"
+                                    id="bio"
+                                    type="text"
+                                    name="bio"
+                                    placeholder="Language"
+                                    required={true}
+                                    onChange={handleChange}
+                                />
+                            </div>
                     </section>
                 </form>
                 
