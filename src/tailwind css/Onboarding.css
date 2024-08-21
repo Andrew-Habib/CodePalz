@@ -18,30 +18,27 @@
     @apply shadow-lg shadow-purple-800/70;
 }
 
-.onboarding form input {
+.onboarding form input, .onboarding form select {
     @apply text-black;
     @apply rounded-xl;
     @apply p-3 my-4 mx-4;
 }
 
-.agreement {
-    @apply w-4 h-4;
-}
-
-.onboarding form input[type="number"] {
+.onboarding form .dob, .languages-input, .frameworks-input, .developer-input {
     @apply w-1/4;
 }
 
-.onboarding input[type=submit] {
+.onboarding form .interests-input {
+    @apply w-5/12;
+}
+
+.onboarding form input[type=submit], .onboarding form input[type=button] {
     @apply text-white;
     @apply bg-gradient-to-b from-purple-800 to-purple-500;
+    @apply border-2 border-white;
 }
 
-.onboarding input[type=submit]:hover {
+.onboarding input[type=submit]:hover, .onboarding input[type=button]:hover {
     @apply bg-gradient-to-b from-pink-800 to-pink-500;
     @apply shadow-lg shadow-pink-500/50;
-}
-
-.languages-input {
-    @apply w-5/12;
 }
