@@ -24,6 +24,33 @@
     @apply p-3 my-4 mx-4;
 }
 
+.onboarding form input::-webkit-inner-spin-button, 
+.onboarding form input::-webkit-outer-spin-button{
+    -webkit-appearance: none;
+}
+
+.onboarding form .gender-div {
+    @apply p-3 my-4;
+}
+
+.onboarding form input[type="radio"] {
+    @apply hidden;
+}
+
+.onboarding form .gender-label {
+    @apply rounded-xl;
+    @apply p-3 my-4 mx-4;
+    @apply border-2 border-white;
+}
+
+.onboarding form .gender-label:hover {
+    @apply border-purple-500;
+}
+
+.onboarding form input[type="radio"]:checked + label {
+    @apply border-pink-500;
+}
+
 .onboarding form .dob, .languages-input, .frameworks-input, .developer-input {
     @apply w-1/4;
 }

@@ -7,9 +7,11 @@ import Nav from '../components/Nav'
 const Onboarding = () => {
 
     const handleChange = () => {
+        console.log('changed')
     }
     
     const handleSubmit = () => {
+        console.log('submitted')
     }
 
     return (
@@ -76,37 +78,34 @@ const Onboarding = () => {
                         </div>
 
                         <label>Gender*</label>
-                        <div>
+                        <div className="gender-div">
                             <input
                                 id="man"
                                 type="radio"
-                                name="man"
-                                required={true}
+                                name="gender"
                                 value="man"
                                 onChange={handleChange}
                                 checked={false}
                             />
-                            <label htmlFor="man">Man</label>
+                            <label className="gender-label" htmlFor="man">Man</label>
                             <input
                                 id="woman"
                                 type="radio"
-                                name="woman"
-                                required={true}
+                                name="gender"
                                 value="woman"
                                 onChange={handleChange}
                                 checked={false}
                             />
-                            <label htmlFor="woman">Woman</label>
+                            <label className="gender-label" htmlFor="woman">Woman</label>
                             <input
-                                id="prefer"
+                                id="prefer-not"
                                 type="radio"
-                                name="prefer-not"
-                                required={true}
+                                name="gender"
                                 value="prefer-not"
                                 onChange={handleChange}
                                 checked={false}
                             />
-                            <label htmlFor="prefer-not">Prefer not to say</label>
+                            <label className="gender-label" htmlFor="prefer-not">Prefer not to say</label>
                         </div>
 
                         <label htmlFor="github">GitHub Profile</label>
@@ -162,26 +161,26 @@ const Onboarding = () => {
                             <label>By signing up, you agree to our Terms of Service and Privacy Policy.</label>
                         </div>
                         
-                        <input type="submit"/>
+                        <input type="submit" onSubmit={handleSubmit}/>
                     </section>
                     <section>
                         <label htmlFor="profile">Profile Picture</label>
-                            <input
-                                id="profile"
-                                type="url"
-                                name="profile"
-                                required={false}
-                                onChange={handleChange}
-                            />
+                        <input
+                            id="profile"
+                            type="url"
+                            name="profile"
+                            required={false}
+                            onChange={handleChange}
+                        />
                         <label htmlFor="coder-name">Coder Name</label>
-                            <input
-                                id="coder-name"
-                                type="text"
-                                name="coder-name"
-                                placeholder="CoderPal02"
-                                required={false}
-                                onChange={handleChange}
-                            />
+                        <input
+                            id="coder-name"
+                            type="text"
+                            name="coder-name"
+                            placeholder="CoderPal02"
+                            required={false}
+                            onChange={handleChange}
+                        />
                         <label htmlFor="bio">Bio</label>
                             <input
                                 id="bio"
