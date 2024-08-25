@@ -4,7 +4,7 @@ const Nav = () => {
     return (
         <nav>
             <div className="logo-div">
-                <img className="logo" src={placeholder_logo}></img> 
+                <img className="logo" src={placeholder_logo} /> 
             </div>
             <h1 className="title-nav">CodePalz</h1>
         </nav>

@@ -6,13 +6,46 @@ import Nav from '../components/Nav'
 
 const Onboarding = () => {
 
-    const handleChange = () => {
-        console.log('changed')
+    const [formData, setFormData] = useState({
+        user_id: '',
+        first_name: '',
+        last_name: '',
+        email: '',
+        dob_day: '',
+        dob_month: '',
+        dob_year: '',
+        gender: 'man',
+        github_url: '',
+        linkedin_url: '',
+        portfolio_url: '',
+        location: '',
+        profile_url: '',
+        coder_name: '',
+        bio: '',
+        goals: '',
+        languages: [],
+        frameworks: [],
+        dev_tools: [],
+        areas_of_interest: [],
+        hear_about_us: '',
+        coder_pals: []
+    })
+
+    const handleChange = (e) => {
+        const value = e.target.value
+        const name = e.target.name
+        console.log(value, name)
+        setFormData((prev) => ({
+            ...prev,
+            [name]: value
+        }))
     }
     
     const handleSubmit = () => {
         console.log('submitted')
     }
+
+    console.log(formData)
 
     return (
         <div>
@@ -23,20 +56,22 @@ const Onboarding = () => {
                     <section>
                         <label htmlFor="first-name">First Name*</label>
                         <input
-                            id="first-name"
+                            id="first_name"
                             type="text"
-                            name="first-name"
+                            name="first_name"
                             placeholder="First Name"
                             required={true}
+                            value={formData.first_name}
                             onChange={handleChange}
                         />
                         <label htmlFor="last-name">Last Name*</label>
                         <input
-                            id="last-name"
+                            id="last_name"
                             type="text"
-                            name="last-name"
+                            name="last_name"
                             placeholder="Last Name"
                             required={true}
+                            value={formData.last_name}
                             onChange={handleChange}
                         />
                         <label htmlFor="email">Email</label>
@@ -46,33 +81,37 @@ const Onboarding = () => {
                             name="email"
                             placeholder="Email"
                             required={false}
+                            value={formData.email}
                             onChange={handleChange}
                         />
 
                         <label>Birthday*</label>
                         <div>
                             <input className="dob"
-                                id="dob-day"
+                                id="dob_day"
                                 type="number"
-                                name="dob-day"
+                                name="dob_day"
                                 placeholder="DD"
                                 required={true}
+                                value={formData.dob_day}
                                 onChange={handleChange}
                             />
                             <input className="dob"
-                                id="dob-month"
+                                id="dob_month"
                                 type="number"
-                                name="dob-month"
+                                name="dob_month"
                                 placeholder="MM"
                                 required={true}
+                                value={formData.dob_month}
                                 onChange={handleChange}
                             />
                             <input className="dob"
-                                id="dob-year"
+                                id="dob_year"
                                 type="number"
-                                name="dob-year"
+                                name="dob_year"
                                 placeholder="YYYY"
                                 required={true}
+                                value={formData.dob_year}
                                 onChange={handleChange}
                             />
                         </div>
@@ -85,7 +124,7 @@ const Onboarding = () => {
                                 name="gender"
                                 value="man"
                                 onChange={handleChange}
-                                checked={false}
+                                checked={formData.gender === 'man'}
                             />
                             <label className="gender-label" htmlFor="man">Man</label>
                             <input
@@ -94,7 +133,7 @@ const Onboarding = () => {
                                 name="gender"
                                 value="woman"
                                 onChange={handleChange}
-                                checked={false}
+                                checked={formData.gender === 'woman'}
                             />
                             <label className="gender-label" htmlFor="woman">Woman</label>
                             <input
@@ -103,38 +142,41 @@ const Onboarding = () => {
                                 name="gender"
                                 value="prefer-not"
                                 onChange={handleChange}
-                                checked={false}
+                                checked={formData.gender === 'prefer-not'}
                             />
                             <label className="gender-label" htmlFor="prefer-not">Prefer not to say</label>
                         </div>
 
                         <label htmlFor="github">GitHub Profile</label>
                         <input
-                            id="github"
+                            id="github_url"
                             type="text"
-                            name="github"
+                            name="github_url"
                             placeholder="GitHub URL"
                             required={false}
+                            value={formData.github_url}
                             onChange={handleChange}
                         />
 
                         <label htmlFor="linkedin">LinkedIn Profile</label>
                         <input
-                            id="linkedin"
+                            id="linkedin_url"
                             type="text"
-                            name="linkedin"
+                            name="linkedin_url"
                             placeholder="LinkedIn URL"
                             required={false}
+                            value={formData.linkedin_url}
                             onChange={handleChange}
                         />
 
                         <label htmlFor="portfolio">Portfolio Website</label>
                         <input
-                            id="portfolio"
+                            id="portfolio_url"
                             type="text"
-                            name="portfolio"
+                            name="portfolio_url"
                             placeholder="Portfolio URL"
                             required={false}
+                            value={formData.portfolio_url}
                             onChange={handleChange}
                         />
 
@@ -145,6 +187,7 @@ const Onboarding = () => {
                             name="location"
                             placeholder="Location"
                             required={false}
+                            value={formData.location}
                             onChange={handleChange}
                         />
                         
@@ -166,19 +209,23 @@ const Onboarding = () => {
                     <section>
                         <label htmlFor="profile">Profile Picture</label>
                         <input
-                            id="profile"
+                            id="profile_url"
                             type="url"
-                            name="profile"
+                            name="profile_url"
                             required={false}
                             onChange={handleChange}
                         />
+                        <div className="photo-container">
+                            <img src={formData.profile_url} alt="Profile Pic Preview"/>
+                        </div>
                         <label htmlFor="coder-name">Coder Name</label>
                         <input
-                            id="coder-name"
+                            id="coder_name"
                             type="text"
-                            name="coder-name"
+                            name="coder_name"
                             placeholder="CoderPal02"
                             required={false}
+                            value={formData.coder_name}
                             onChange={handleChange}
                         />
                         <label htmlFor="bio">Bio</label>
@@ -188,6 +235,7 @@ const Onboarding = () => {
                                 name="bio"
                                 placeholder="I love coding games in python..."
                                 required={false}
+                                value={formData.bio}
                                 onChange={handleChange}
                             />
                         <label htmlFor="goals">Goals</label>
@@ -197,28 +245,29 @@ const Onboarding = () => {
                             name="goals"
                             placeholder="I would like to begin a startup..."
                             required={false}
+                            value={formData.goals}
                             onChange={handleChange}
                         />
                         <label htmlFor="languages">Languages</label>
                         <div>
                             <input className="languages-input"
-                                id="languages-text"
+                                id="languages_text"
                                 type="text"
-                                name="languages-text"
+                                name="languages_text"
                                 placeholder="Language"
                                 required={false}
                                 onChange={handleChange}
                             />
-                            <select className="languages-input" id="languages-level" name="languages-level" defaultValue="Level" required={false} onChange={handleChange}>
+                            <select className="languages-input" id="languages_level" name="languages_level" defaultValue="Level" required={false} onChange={handleChange}>
                                 <option value="noob">Noob</option>
                                 <option value="aight">Aight</option>
                                 <option value="decent">Decent</option>
                                 <option value="goat">GOAT</option>
                             </select>
                             <input className="languages-input"
-                                id="languages-button"
+                                id="languages_button"
                                 type="button"
-                                name="languages-button"
+                                name="languages_button"
                                 value="Add"
                                 required={false}
                                 onChange={handleChange}
@@ -227,23 +276,23 @@ const Onboarding = () => {
                         <label htmlFor="frameworks">Frameworks</label>
                         <div>
                             <input className="frameworks-input"
-                                id="frameworks-text"
+                                id="frameworks_text"
                                 type="text"
-                                name="frameworks-text"
+                                name="frameworks_text"
                                 placeholder="Framework"
                                 required={false}
                                 onChange={handleChange}
                             />
-                            <select className="frameworks-input" id="frameworks-level" name="frameworks-level" defaultValue="Level" required={false} onChange={handleChange}>
+                            <select className="frameworks-input" id="frameworks_level" name="frameworks_level" defaultValue="Level" required={false} onChange={handleChange}>
                                 <option value="noob">Noob</option>
                                 <option value="aight">Aight</option>
                                 <option value="decent">Decent</option>
                                 <option value="goat">GOAT</option>
                             </select>
                             <input className="frameworks-input"
-                                id="frameworks-button"
+                                id="frameworks_button"
                                 type="button"
-                                name="frameworks-button"
+                                name="frameworks_button"
                                 value="Add"
                                 required={false}
                                 onChange={handleChange}
@@ -252,23 +301,23 @@ const Onboarding = () => {
                         <label htmlFor="dev-tools">Developer Tools</label>
                         <div>
                             <input className="developer-input"
-                                id="developer-text"
+                                id="developer_text"
                                 type="text"
-                                name="developer-text"
+                                name="developer_text"
                                 placeholder="Tool"
                                 required={false}
                                 onChange={handleChange}
                             />
-                            <select className="developer-input" id="developer-level" name="developer-level" defaultValue="Level" required={false} onChange={handleChange}>
+                            <select className="developer-input" id="developer_level" name="developer_level" defaultValue="Level" required={false} onChange={handleChange}>
                                 <option value="noob">Noob</option>
                                 <option value="aight">Aight</option>
                                 <option value="decent">Decent</option>
                                 <option value="goat">GOAT</option>
                             </select>
                             <input className="developer-input"
-                                id="developer-button"
+                                id="developer_button"
                                 type="button"
-                                name="developer-button"
+                                name="developer_button"
                                 value="Add"
                                 required={false}
                                 onChange={handleChange}
@@ -277,17 +326,17 @@ const Onboarding = () => {
                         <label htmlFor="interests">Areas of Interest</label>
                         <div>
                             <input className="interests-input"
-                                id="interests-text"
+                                id="interests_text"
                                 type="text"
-                                name="interests-text"
+                                name="interests_text"
                                 placeholder="Interest"
                                 required={false}
                                 onChange={handleChange}
                             />
                             <input className="interests-input"
-                                id="interests-button"
+                                id="interests_button"
                                 type="button"
-                                name="interests-button"
+                                name="interests_button"
                                 value="Add"
                                 required={false}
                                 onChange={handleChange}
@@ -295,10 +344,11 @@ const Onboarding = () => {
                         </div>
                         <label htmlFor="hear-about-us">How did you hear about us?</label>
                             <input
-                                id="hear-about-us"
+                                id="hear_about_us"
                                 type="text"
-                                name="hear-about-us"
+                                name="hear_about_us"
                                 required={false}
+                                value={formData.hear_about_us}
                                 onChange={handleChange}
                             />
                     </section>
