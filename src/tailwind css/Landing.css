@@ -1,4 +1,4 @@
 .landing-ad-msg { 
     @apply text-4xl text-center;
-    @apply mt-24 mb-8;
+    @apply mt-12 mb-8;
 }

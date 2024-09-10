@@ -4,11 +4,12 @@ nav {
 }
 
 nav .logo-div {
-    @apply w-10 m-2;
+    @apply w-14 m-2;
 }
 
 nav .logo-div .logo {
     @apply w-full rounded-xl;
+    @apply bg-white;
 }
 
 nav .title-nav {
@@ -18,4 +19,8 @@ nav .title-nav {
 
 nav .nav-button {
     @apply py-2 px-8;
+}
+
+body {
+    @apply pt-14;
 }

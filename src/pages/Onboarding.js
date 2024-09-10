@@ -212,6 +212,7 @@ const Onboarding = () => {
                             id="profile_url"
                             type="url"
                             name="profile_url"
+                            placeholder='Profile Pic URL'
                             required={false}
                             onChange={handleChange}
                         />
