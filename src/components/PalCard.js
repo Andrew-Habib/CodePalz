@@ -8,7 +8,7 @@ const PalCard = ({name="Anonymous",
     dev_tools=[], 
     skill_level="Beginner", 
     availability="Anytime", 
-    project_match_mode=false, 
+    project_match_mode=true, 
     project_name="none", 
     project_description="No Description", 
     owner="Anonymous", 
@@ -18,101 +18,54 @@ const PalCard = ({name="Anonymous",
     tags=[]}) => {
     return (
         <div className="pal-card">
-            {project_match_mode ? (
-                <div className="text-center">
-                    <h2 className="text-2xl font-semibold mb-2 text-purple-400">{project_name}</h2>
-                    <p className="text-m text-gray-400 mb-2">Owner: <span className="text-white">{owner}</span></p>
-                    <p className="text-base text-white mb-4">{project_description}</p>
-                    <div className="flex flex-wrap justify-between mb-4">
-                        <div className="w-full sm:w-1/2 mb-4">
-                            <p className="text-m text-gray-400 mb-2">Expected Skill Level: <span className="text-white">{expected_skill}</span></p>
-                        </div>
-                        <div className="w-full sm:w-1/2 mb-4">
-                            <p className="text-m text-gray-400 mb-2">Timeline: <span className="text-white">{timeline}</span></p>
-                        </div>
+            <div className={`card-label ${project_match_mode ? 'card-label-project' : 'card-label-connect'}`}>
+            {project_match_mode ? 'Project' : 'Connect'}
+        </div>
+            <div className="text-center">
+                <h2 className="card-title">{project_match_mode ? project_name : name}</h2>
+                <p className="small-headings">{project_match_mode ? "Owner: " : "CoderName: "}<span className="text-white">{project_match_mode ? owner : coder_name}</span></p>
+                <p className="small-content">{project_match_mode ? project_description : bio}</p>
+                <div className="flex-containers">
+                    <div className="sub-containers">
+                        <p className="small-headings">{project_match_mode ? "Expected Skill Level: " : "Status: "} <span className="small-content">{project_match_mode ? expected_skill : status}</span></p>
+                        <p className="small-headings">{project_match_mode ? "Collaborators: " : "Location: "}<span className="small-content">{project_match_mode ? (collaborators.length > 0 ? collaborators.join(', ') : "No collaborators yet") : location}</span></p>
                     </div>
-                    <div className="flex flex-wrap justify-between mb-4">
-                        <div className="w-full sm:w-1/2 mb-4">
-                            <h3 className="text-lg font-semibold mb-2 text-pink-500">Collaborators</h3>
-                            <ul className="list-disc list-inside text-white">
-                                {collaborators.length > 0 ? (
-                                    collaborators.map((collaborator, index) => (
-                                        <li key={index}>{collaborator}</li>
-                                    ))
-                                ) : (
-                                    <li>No collaborators yet</li>
-                                )}
-                            </ul>
-                        </div>
-                        <div className="w-full sm:w-1/2 mb-4">
-                            <h3 className="text-lg font-semibold mb-2 text-pink-500">Tags</h3>
-                            <ul className="list-disc list-inside text-white">
-                                {tags.length > 0 ? (
-                                    tags.map((tag, index) => (
-                                        <li key={index}>{tag}</li>
-                                    ))
-                                ) : (
-                                    <li>No tags provided</li>
-                                )}
-                            </ul>
-                        </div>
+                    <div className="sub-containers">
+                        <p className="small-headings">{project_match_mode ? "Timeline: " : "Skill Level: "}<span className="small-content">{project_match_mode ? timeline : skill_level}</span></p>
+                        <p className="small-headings">{project_match_mode ? "Tags: " : "Availability: "} <span className="small-content">{project_match_mode ? (tags.length > 0 ? tags.join(', ') : "No tags provided") : availability}</span></p>
                     </div>
                 </div>
-            ) : (
-                <div className="text-center">
-                    <h2 className="text-2xl font-semibold mb-2 text-purple-400">{name}</h2>
-                    <p className="text-m text-gray-400 mb-2">Coder Name: <span className="text-white">{coder_name}</span></p>
-                    <p className="text-base text-white mb-4">{bio}</p>
-                    <div className="flex flex-wrap justify-between mb-4">
-                        <div className="w-full sm:w-1/2 mb-4">
-                            <p className="text-m text-gray-400 mb-2">Status: <span className="text-white">{status}</span></p>
-                            <p className="text-m text-gray-400 mb-2">Location: <span className="text-white">{location}</span></p>
-                        </div>
-                        <div className="w-full sm:w-1/2 mb-4">
-                            <p className="text-m text-gray-400 mb-2">Skill Level: <span className="text-white">{skill_level}</span></p>
-                            <p className="text-m text-gray-400 mb-4">Availability: <span className="text-white">{availability}</span></p>
-                        </div>
+                <div className="flex-containers">
+                    <div className="tech-sub-containers">
+                        <h3 className="tech-headings">Languages</h3>
+                        <ul className="tech-lists">
+                            {languages.length > 0 ? (
+                                languages.map((language, index) => (
+                                    <li key={index}>{language}</li>
+                                ))
+                            ) : (<li>No languages listed</li>)}
+                        </ul>
                     </div>
-                    <div className="flex flex-wrap justify-between mb-4">
-                        <div className="w-full sm:w-1/3 mb-4">
-                            <h3 className="text-lg font-semibold mb-2 text-pink-500">Languages</h3>
-                            <ul className="list-disc list-inside text-white">
-                                {languages.length > 0 ? (
-                                    languages.map((language, index) => (
-                                        <li key={index}>{language}</li>
-                                    ))
-                                ) : (
-                                    <li>No languages listed</li>
-                                )}
-                            </ul>
-                        </div>
-                        <div className="w-full sm:w-1/3 mb-4">
-                            <h3 className="text-lg font-semibold mb-2 text-pink-500">Frameworks</h3>
-                            <ul className="list-disc list-inside text-white">
-                                {frameworks.length > 0 ? (
-                                    frameworks.map((framework, index) => (
-                                        <li key={index}>{framework}</li>
-                                    ))
-                                ) : (
-                                    <li>No frameworks listed</li>
-                                )}
-                            </ul>
-                        </div>
-                        <div className="w-full sm:w-1/3 mb-4">
-                            <h3 className="text-lg font-semibold mb-2 text-pink-500">Development Tools</h3>
-                            <ul className="list-disc list-inside text-white">
-                                {dev_tools.length > 0 ? (
-                                    dev_tools.map((tool, index) => (
-                                        <li key={index}>{tool}</li>
-                                    ))
-                                ) : (
-                                    <li>No dev tools listed</li>
-                                )}
-                            </ul>
-                        </div>
+                    <div className="tech-sub-containers">
+                        <h3 className="tech-headings">Frameworks</h3>
+                        <ul className="tech-lists">
+                            {frameworks.length > 0 ? (
+                                frameworks.map((framework, index) => (<li key={index}>{framework}</li>))
+                            ) : (<li>No frameworks listed</li>)}
+                        </ul>
+                    </div>
+                    <div className="tech-sub-containers">
+                        <h3 className="tech-headings">Development Tools</h3>
+                        <ul className="tech-lists">
+                            {dev_tools.length > 0 ? (
+                                dev_tools.map((tool, index) => (
+                                    <li key={index}>{tool}</li>
+                                ))
+                            ) : (<li>No dev tools listed</li>)}
+                        </ul>
                     </div>
                 </div>
-            )}
+            </div>
         </div>
     )
 }
