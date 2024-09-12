@@ -1,4 +1,3 @@
-import placeholder_logo from '../images/placeholder-logo.png'
 import codepalz_logo from '../images/codepalz-logo.png'
 
 const Nav = () => {
