@@ -1,9 +1,13 @@
 import Nav from '../components/Nav'
 import PalCard from '../components/PalCard'
+import React, { useState } from 'react'
 
 // Find Collaborators by filters and Match, preliminary chat feature
 
 const Dashboard = () => {
+
+    const [iconClicked, setIconClicked] = useState(null);
+
     return (
         <div className="dashboard">
             <Nav />
@@ -16,9 +20,14 @@ const Dashboard = () => {
                     <li class="mb-2">Notification 3</li>
                 </ul>
                 </div>
+                
                 <div className="card-container">
-                    <PalCard />
+                    <div>
+                        {iconClicked === 'check' ? 'Check icon clicked' : 'X icon clicked'}
+                    </div>
+                    <PalCard onIconClick={setIconClicked}/>
                 </div>
+                
             </div>
         </div>
     )

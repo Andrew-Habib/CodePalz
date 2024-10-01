@@ -1,6 +1,7 @@
 import { FaCheckCircle, FaTimesCircle } from 'react-icons/fa';
 
-const PalCard = ({name="Anonymous", 
+const PalCard = ({ onIconClick,
+    name="Anonymous", 
     coder_name="anonymous", 
     bio="Ready to collaborate...", 
     status="Available", 
@@ -20,8 +21,8 @@ const PalCard = ({name="Anonymous",
     tags=[]}) => {
     return (
         <div className="pal-card">
-            <FaCheckCircle className="check-icon" />
-            <FaTimesCircle className="x-icon" />
+            <FaCheckCircle className="check-icon" onClick={() => onIconClick('check')}/>
+            <FaTimesCircle className="x-icon" onClick={() => onIconClick('x')}/>
             <div className={`card-label ${project_match_mode ? 'card-label-project' : 'card-label-connect'}`}>
             {project_match_mode ? 'Project' : 'Connect'}
         </div>

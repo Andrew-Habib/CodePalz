@@ -1,5 +1,5 @@
 .pal-card {
-    @apply bg-slate-950 rounded-2xl;
+    @apply bg-slate-950 rounded-2xl min-h-96;
     @apply border-2 border-purple-500;
     @apply m-4 px-16 py-4 text-center;
     @apply shadow-lg shadow-purple-800/70;
