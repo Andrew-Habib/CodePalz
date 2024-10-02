@@ -1,5 +1,5 @@
-Credits:
-Ania Kubów: https://www.youtube.com/watch?v=Q70IMS-Qnjk
+# Credits:
+# Ania Kubów: https://www.youtube.com/watch?v=Q70IMS-Qnjk
 - Ultimate Tinder Clone Tutorial
 - Used as tutorial for general structure of code and understanding
 - Used outline code for some parts of client and server code
