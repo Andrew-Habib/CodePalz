@@ -1,0 +1,36 @@
+.login-title, .signup-title {
+    @apply text-2xl text-center font-bold;
+    @apply m-8;
+}
+
+.login-form, .signup-form {
+    @apply flex flex-col;
+    @apply text-black;
+    @apply m-8;
+}
+
+.login-form input[type=username], 
+.login-form input[type=password], 
+.signup-form input[type=username],
+.signup-form input[type=password],
+.signup-form input[type=password-confirm],
+.login-button, .signup-button {
+    @apply p-3 m-3 font-bold;
+    @apply rounded-xl;
+}
+
+.login-button, .signup-button {
+    @apply text-white;
+    @apply bg-gradient-to-b from-purple-800 to-purple-500;
+}
+
+.login-button:hover, .signup-button:hover {
+    @apply bg-gradient-to-b from-pink-800 to-pink-500;
+    @apply shadow-lg shadow-pink-500/50;
+    @apply scale-105;
+} 
+
+.signup-error {
+    @apply flex justify-center text-center;
+    @apply text-xl m-8;
+}
