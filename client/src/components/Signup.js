@@ -27,9 +27,8 @@ const Signup = () => {
 
             const response = await axios.post('http://localhost:8000/signup', {username, password})
             
-            setCookie('Username', response.data.user_name)
-            setCookie('UserId', response.data.user_id)
             setCookie('Token', response.data.token)
+            setCookie('UserId', response.data.userId)
 
             if (response.status === 201) {
                 navigate('/onboarding')

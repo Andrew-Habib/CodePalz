@@ -38,7 +38,7 @@ app.post('/signup', async (req, res) => {
 
         const token = jwt.sign({ user_id: genUserID }, secret_key, {expiresIn: 1440}) // Secure user authentication using JSON Web Token
 
-        res.status(201).json({ token, user_id: genUserID, user_name: username }) // Server response
+        res.status(201).json({ token, userId: genUserID }) // Server response
 
     } catch(err) {
         console.log(err)
@@ -62,7 +62,7 @@ app.post('/login', async (req, res) => {
 
         if (user && validPass) {
             const token = jwt.sign(user, secret_key, {expiresIn: 1440})
-            res.status(201).json({ token, user_id: user.user_id, user_name: username })
+            res.status(201).json({ token, userId: user.user_id })
         }
         res.status(400).send('Invalid Username or Password!')
 
@@ -84,6 +84,51 @@ app.get('/users', async (req, res) => { // What does this do?
         res.send(returnedUsers)
     } catch(err) {
         console.log(err);
+    } finally {
+        await client.close()
+    }
+})
+
+app.put('/user', async (req, res) => {
+    const client = new MongoClient(uri)
+    const formData = req.body.formData
+
+    try {
+        await client.connect()
+        const users = client.db('app-data').collection('users')
+
+        const query = { user_id: formData.user_id }
+        const updatedUser = {
+            $set: {
+                first_name: formData.first_name,
+                last_name: formData.last_name,
+                email: formData.email,
+                dob_day: formData.dob_day,
+                dob_month: formData.dob_month,
+                dob_year: formData.dob_year,
+                gender: formData.gender,
+                github_url: formData.github_url,
+                linkedin_url: formData.linkedin_url,
+                portfolio_url: formData.portfolio_url,
+                location: formData.location,
+                profile_url: formData.profile_url,
+                coder_name: formData.coder_name,
+                bio: formData.bio,
+                goals: formData.goals,
+                languages: formData.languages,
+                frameworks: formData.frameworks,
+                dev_tools: formData.dev_tools,
+                areas_of_interest: formData.areas_of_interest,
+                hear_about_us: formData.hear_about_us,
+                coder_pals: formData.coder_pals
+            }
+        }
+
+        const insertedUser = await users.updateOne(query, updatedUser)
+        res.send(insertedUser)
+
+    } catch (err) {
+        console.log(err)
     } finally {
         await client.close()
     }

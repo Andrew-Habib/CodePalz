@@ -1,13 +1,17 @@
 import { useState } from 'react'
 import Nav from '../components/Nav'
+import { useNavigate } from 'react-router-dom'
+import { useCookies } from 'react-cookie'
+import axios from 'axios'
 
 // Coder name
 // Noob Aight Decent GOAT
 
 const Onboarding = () => {
 
+    const [ cookies, setCookie, removeCookie ] = useCookies(['user'])
     const [formData, setFormData] = useState({
-        user_id: '',
+        user_id: cookies.UserId,
         first_name: '',
         last_name: '',
         email: '',
@@ -31,6 +35,8 @@ const Onboarding = () => {
         coder_pals: []
     })
 
+    let navigate = useNavigate()
+
     const handleChange = (e) => {
         const value = e.target.value
         const name = e.target.name
@@ -41,8 +47,17 @@ const Onboarding = () => {
         }))
     }
     
-    const handleSubmit = () => {
+    const handleSubmit = async (e) => {
         console.log('submitted')
+        e.preventDefault()
+        try {
+            const response = await axios.put('http://localhost:8000/user', { formData })
+            if (response.status === 200) {
+                navigate('/dashboard')
+            }
+        } catch (err) {
+            console.log(err)
+        }
     }
 
     console.log(formData)
@@ -217,7 +232,7 @@ const Onboarding = () => {
                             onChange={handleChange}
                         />
                         <div className="photo-container">
-                            <img src={formData.profile_url} alt="Profile Pic Preview"/>
+                            {formData.profile_url && <img src={formData.profile_url} alt="Profile Pic Preview"/>}
                         </div>
                         <label htmlFor="coder-name">Coder Name</label>
                         <input
