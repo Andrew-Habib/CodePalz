@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
+import { useCookies } from 'react-cookie'
 
 const Signup = () => {
     
@@ -8,6 +9,7 @@ const Signup = () => {
     const [ password, setPassword ] = useState(null)
     const [ confirmPassword, setConfirmPassword ] = useState(null)
     const [ error, setError ] = useState(null)
+    const [ cookies, setCookie, removeCookie ] = useCookies(['user'])
 
     let navigate = useNavigate()
     
@@ -24,9 +26,13 @@ const Signup = () => {
             }
 
             const response = await axios.post('http://localhost:8000/signup', {username, password})
+            
+            setCookie('Username', response.data.user_name)
+            setCookie('UserId', response.data.user_id)
+            setCookie('Token', response.data.token)
 
             if (response.status === 201) {
-                    navigate('/onboarding')
+                navigate('/onboarding')
             }
 
         } catch (err) {

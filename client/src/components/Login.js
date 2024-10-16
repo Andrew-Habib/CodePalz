@@ -1,12 +1,27 @@
 import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
+import axios from 'axios'
 
 const Login = () => {
     
     const [ username, setUsername ] = useState(null)
     const [ password, setPassword ] = useState(null)
 
-    const handleSubmit = (e) => {
+    let navigate = useNavigate()
+
+    const handleSubmit = async (e) => {
         e.preventDefault()
+
+        try {
+            const response = await axios.post('http://localhost:8000/login', {username, password})
+
+            if (response.status === 201) {
+                navigate('/dashboard')
+            }
+
+        } catch (err) {
+            console.log(err)
+        }
     }
 
     return (
