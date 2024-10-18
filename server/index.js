@@ -63,8 +63,9 @@ app.post('/login', async (req, res) => {
         if (user && validPass) {
             const token = jwt.sign(user, secret_key, {expiresIn: 1440})
             res.status(201).json({ token, userId: user.user_id })
+        } else {
+            res.status(400).send('Invalid Username or Password!')
         }
-        res.status(400).send('Invalid Username or Password!')
 
     } catch(err) {
         console.log(err)
@@ -72,6 +73,23 @@ app.post('/login', async (req, res) => {
         await client.close()
     }
 
+});
+
+app.get('/user', async (req, res) =>  {
+    const client = new MongoClient(uri)
+    const userId = req.query.userId
+
+    try {
+        await client.connect()
+        const users = client.db('app-data').collection('users')
+        const query = { user_id: userId }
+        const user = await users.findOne(query)
+        res.send(user)
+    } catch (err) {
+        console.log(err);
+    } finally {
+        await client.close();
+    }
 });
 
 app.get('/users', async (req, res) => { // What does this do?
@@ -83,7 +101,7 @@ app.get('/users', async (req, res) => { // What does this do?
         const returnedUsers = await users.find().toArray()
         res.send(returnedUsers)
     } catch(err) {
-        console.log(err);
+        console.log(err)
     } finally {
         await client.close()
     }

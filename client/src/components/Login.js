@@ -1,11 +1,13 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
+import { useCookies } from 'react-cookie'
 
 const Login = () => {
     
     const [ username, setUsername ] = useState(null)
     const [ password, setPassword ] = useState(null)
+    const [ cookies, setCookie, removeCookie ] = useCookies(['user'])
 
     let navigate = useNavigate()
 
@@ -14,6 +16,9 @@ const Login = () => {
 
         try {
             const response = await axios.post('http://localhost:8000/login', {username, password})
+
+            setCookie('Token', response.data.token)
+            setCookie('UserId', response.data.userId)
 
             if (response.status === 201) {
                 navigate('/dashboard')
