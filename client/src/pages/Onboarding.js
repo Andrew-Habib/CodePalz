@@ -64,7 +64,7 @@ const Onboarding = () => {
 
     return (
         <div>
-            <Nav />
+            <Nav loggedin={false}/>
             <div className="onboarding">
                 <h1 className="msg-ad-onboarding">Become a Code Pal</h1>
                 <form onSubmit={handleSubmit}>

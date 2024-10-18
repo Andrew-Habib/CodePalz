@@ -33,7 +33,7 @@ const Dashboard = () => {
 
     return (
         <div className="dashboard">
-            <Nav />
+            <Nav loggedin={true}/>
             <div className="main-content">
                 <div className="notification-panel">
                 <h2 class="text-lg font-semibold mb-2">Notifications</h2>
@@ -43,14 +43,19 @@ const Dashboard = () => {
                     <li class="mb-2">Notification 3</li>
                 </ul>
                 </div>
-                
-                <div className="card-container">
-                    <div>
-                        {iconClicked === 'check' ? 'Check icon clicked' : 'X icon clicked'}
+                <div className="general-content">
+                    <div className="coder-name-container">
+                        <h1 className="coder-name">
+                            Hello, {user ? user.coder_name : 'Unknown'}
+                        </h1>
                     </div>
-                    <PalCard onIconClick={setIconClicked}/>
+                    <div className="card-container">
+                        <div>
+                            {iconClicked === 'check' ? 'Check icon clicked' : 'X icon clicked'}
+                        </div>
+                        <PalCard user={user} onIconClick={setIconClicked}/>
+                    </div>
                 </div>
-                
             </div>
         </div>
     )

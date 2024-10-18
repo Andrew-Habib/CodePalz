@@ -15,6 +15,22 @@ html {
     @apply min-h-screen;
 }
 
-.main-content .card-container {
-    @apply flex flex-col mx-auto  w-[55vw] items-center justify-center;
+.general-content {
+    @apply flex flex-col mx-auto  w-[100vw] items-center;
+}
+
+.general-content .card-container {
+    @apply flex flex-col mx-auto items-center justify-center;
+}
+
+.coder-name-container {
+    @apply flex items-center justify-start m-4 p-8;
+    @apply w-full;
+}
+
+.coder-name {
+    @apply text-5xl font-bold text-purple-500 text-center;
+    @apply transition duration-300 ease-in-out transform hover:scale-105;
+    @apply shadow-md shadow-purple-500/50;
+    @apply p-6 bg-slate-900 rounded-lg;
 }
