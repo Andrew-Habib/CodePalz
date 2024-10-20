@@ -7,6 +7,7 @@
 import Landing from './pages/Landing'
 import Dashboard from './pages/Dashboard'
 import Onboarding from './pages/Onboarding'
+import PalZone from './pages/PalZone'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
 const App = () => {
@@ -16,6 +17,7 @@ const App = () => {
         <Route path={"/"} element={<Landing/>}/>
         <Route path={"/dashboard"} element={<Dashboard/>}/>
         <Route path={"/onboarding"} element={<Onboarding/>}/>
+        <Route path={"/palzone"} element={<PalZone/>}/>
       </Routes>
     </BrowserRouter>
   );

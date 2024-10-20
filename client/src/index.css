@@ -9,6 +9,7 @@
 @import url('./tailwind\ css/Onboarding.css');
 @import url('./tailwind\ css/Dashboard.css');
 @import url('./tailwind\ css/PalCard.css');
+@import url('./tailwind\ css/PalZone.css');
 
 body {
   @apply bg-slate-950;

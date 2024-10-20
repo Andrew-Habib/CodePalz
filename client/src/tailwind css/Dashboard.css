@@ -16,11 +16,11 @@ html {
 }
 
 .general-content {
-    @apply flex flex-col mx-auto  w-[100vw] items-center;
+    @apply flex flex-col w-[100vw];
 }
 
 .general-content .card-container {
-    @apply flex flex-col mx-auto items-center justify-center;
+    @apply flex flex-col items-center justify-center;
 }
 
 .coder-name-container {

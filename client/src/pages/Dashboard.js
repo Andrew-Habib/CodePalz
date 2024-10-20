@@ -46,7 +46,7 @@ const Dashboard = () => {
                 <div className="general-content">
                     <div className="coder-name-container">
                         <h1 className="coder-name">
-                            Hello, {user ? user.coder_name : 'Unknown'}
+                            Welcome, {user ? user.coder_name : ''}
                         </h1>
                     </div>
                     <div className="card-container">
